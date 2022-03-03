@@ -13,8 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/spillside" element={<Spillside/>} />
-
-          
+          <Route path="/login" element={<Loginside/>} />
         </Routes>
       </Router>
       
