@@ -7,16 +7,16 @@ export const Loginside = () => (
     <>
         <MobileContainer>
             <Tittel> Drikkespill </Tittel>
-            <div>
-            <img width="100px"  src={Image} alt="a"/>
-            </div>
+            <BildeCont>
+            <img width="100px" src={Image} alt="a"/>
+            </BildeCont>
             <Brukernavn type="text" placeholder="Brukernavn" />
-            <Passord type="text" placeholder="Passord"/>
+            <Passord type="password" placeholder="Passord"/>
 
-            <Register>
+            <Register onClick={() => console.log('Register')}>
                 Registrer deg her
             </Register>
-            <LoggInn>
+            <LoggInn onClick={() => console.log('Logg inn')} >
                 Logg inn
             </LoggInn>
             <Undertekst>
@@ -65,8 +65,18 @@ const LoggInn = styled.button`
 `;
 
 const Undertekst = styled.div`
+    height: 100%;
     color: light-grey;
     text-align: left;
     font-size: x-small;
-    position:relative; left 20px; top:360px;
+    display: flex;
+    align-items: flex-end;
+    margin: 10px 5px 20px 30px;
+`;
+
+
+const BildeCont = styled.div`
+    width: 100%;
+    display: flex; 
+    justify-content: center;
 `;
