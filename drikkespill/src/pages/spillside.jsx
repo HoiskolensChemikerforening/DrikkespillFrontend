@@ -28,7 +28,7 @@ export const Spillside = () => (
                 <Button onClick={() => console.log('1')}>
                     1
                 </Button>
-                {/* <Button onClick={() => console.log('2')}>
+                <Button onClick={() => console.log('2')}>
                     2
                 </Button>
                 <Button onClick={() => console.log('3')}>
@@ -39,7 +39,7 @@ export const Spillside = () => (
                 </Button>
                 <Button onClick={() => console.log('5')}>
                     5
-                </Button> */}
+                </Button>
             </Buttons>
 
 
@@ -68,7 +68,7 @@ const Background = styled.div`
 
 const Textbox = styled.div`
     color: black;
-    font-size: 3vmax;
+    font-size: 180%;
     text-align: center;
     
 `;
