@@ -58,7 +58,7 @@ const LoggInn = styled.button`
     position:relative; left:185px; top:2px;
 `;
 
-const Undertekst = styled.div.a`
+const Undertekst = styled.div`
     color: light-grey;
     text-align: left;
     font-size: x-small;

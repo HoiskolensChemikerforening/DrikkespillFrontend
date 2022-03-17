@@ -4,6 +4,7 @@ import { MobileContainer } from "../components/MobileContainer";
 
 
 export const Spillside = () => (
+
     <>
         <MobileContainer >
             <Background>
@@ -18,10 +19,28 @@ export const Spillside = () => (
 
             <CurrentPlayer>
                 <Textbox>
-                Det er Håkon sin tur til å velge
+                Det er Håkon sin tur til å velge 
                 </Textbox>
             </CurrentPlayer>
             </Information>
+
+            <Buttons>
+                <Button onClick={() => console.log('1')}>
+                    1
+                </Button>
+                {/* <Button onClick={() => console.log('2')}>
+                    2
+                </Button>
+                <Button onClick={() => console.log('3')}>
+                    3
+                </Button>
+                <Button onClick={() => console.log('4')}>
+                    4
+                </Button>
+                <Button onClick={() => console.log('5')}>
+                    5
+                </Button> */}
+            </Buttons>
 
 
             <Category>
@@ -35,6 +54,8 @@ export const Spillside = () => (
     </>
 );
 
+
+
 const Background = styled.div`
     width: 100%;
     height: 100%;
@@ -43,9 +64,6 @@ const Background = styled.div`
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    
-
-
 `;
 
 const Textbox = styled.div`
@@ -57,22 +75,22 @@ const Textbox = styled.div`
 
 const Information = styled.div`
     
-    height = 50%;
+    height = 80%;
     display: flex;
+    align-items: center;
     flex-direction: column;
-
+    justify-content: center;
+    
 `
 
 const Question = styled.div`
     width: 80%;
-    height: 10%;
+    height: 50%;
     background-color: #ffffff;
     margin: 5px;
     padding-top: 10%;
-    
-    
+` 
 
-`
 
 const Category = styled.div`
     width: 80%;
@@ -88,9 +106,28 @@ const Category = styled.div`
 `;
 
 const CurrentPlayer = styled.div`
-    width: r80%;
-    height: r10%;
+    width: 80%;
+    height: 30%;
     background-color: #ffffff;
-
     margin: 10px;
 `
+const Buttons = styled.div`
+    width: 80%;
+    height: 60%;
+    background-color: #ffffff;
+    
+    
+    display: grid;
+    grid-template-columns: [first] auto [line2] auto;
+    column-gap: 2%;
+    row-gap: 1%;
+`
+
+const Button  = styled.button`
+    
+    
+    text-align: center;
+    background-color: #ff0000;
+
+`
+
