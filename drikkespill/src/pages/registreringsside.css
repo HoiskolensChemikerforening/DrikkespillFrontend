@@ -1,3 +1,9 @@
 .createUser{
     background-color: green;
 }
+
+.skjema{
+    display: flex;
+    justify-content: center;
+}
+
