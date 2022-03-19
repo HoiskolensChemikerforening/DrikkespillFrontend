@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import {useEffect, useState} from "react";
+import Image from "../images/dextersquare.png";
+
 
 export const Mellomside = () => {
     
@@ -22,6 +24,15 @@ export const Mellomside = () => {
     <>
         <MobileContainer>
 
+            <Question>
+                <Textbox> Johannes er kulest! </Textbox>
+            </Question>
+            <BildeCont>
+            <img width="250px" src={Image} alt="a"/>
+            </BildeCont>
+            <PersonStraff> Johannes må </PersonStraff>
+            <Straff> RANDOM STRAFF </Straff>
+
             <Knapp onClick={() => console.log('Neste spørsmål')}> Neste spørsmål </Knapp>
 
         </MobileContainer>
@@ -34,5 +45,49 @@ const Knapp = styled.button`
     border-radius 2px;
     cursor: pointer;
     padding: 0,25em 1em;
-    position:relative; left:185px; top:22px;
+    position:relative; left:240px; top:100px;
+`;
+
+const Question = styled.div`
+    width: 80%;
+    height: 10%;
+    background-color: #ffffff;
+    margin: 10px; 
+    padding-top: 10%;
+    border-style: solid;
+    border-color: dimgray;
+    border-width: 1px;
+    display flex;
+    justify-content: center;
+    margin-left: 40px;
+`;
+
+const Textbox = styled.div`
+    color: black;
+    font-size: 180%;
+    text-align: center;
+    border-color: pink;
+    display-flex:
+    justify-content: center;
+`;
+
+const BildeCont = styled.div`
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+`;
+
+const PersonStraff = styled.h1`
+    color: dimgrey;
+    font-size: 1,0em;
+    display flex;
+    justify-content: center;
+`;
+
+const Straff = styled.h1`
+    color: black;
+    font-size: 1,5em;
+    display flex;
+    justify-content: center;
+    margin-top: -20px;
 `;

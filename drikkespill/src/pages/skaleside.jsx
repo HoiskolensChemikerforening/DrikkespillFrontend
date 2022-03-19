@@ -40,15 +40,16 @@ export const Skaleside = () => {
 
 const Tittel = styled.h1`
     font-size: 2,0em;
-    color: grey;
+    color: dimgrey;
     display flex;
     justify-content: center;
 `;
 
 const Sporsmal = styled.h1`
     font-size: 1,5em;
-    text-align: center;
     color: grey;
+    display flex;
+    justify-content: center;
 `;
 
 const Knapp = styled.button`
@@ -56,11 +57,11 @@ const Knapp = styled.button`
     border-radius 2px;
     cursor: pointer;
     padding: 0,25em 1em;
-    position:relative; left:185px; top:22px;
+    position:relative; left:230px; top:200px;
 `;
 
 const BildeCont = styled.div`
-    width: 100%;
+    width: 85%;
     display: flex; 
     justify-content: center;
     margin: 30px;

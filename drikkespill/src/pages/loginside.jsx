@@ -88,7 +88,7 @@ const Undertekst = styled.div`
     font-size: x-small;
     display: flex;
     align-items: flex-end;
-    margin: 10px 5px 20px 30px;
+    margin: 250px 5px 20px 30px;
 `;
 
 
