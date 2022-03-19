@@ -2,18 +2,47 @@ import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import './spillside.css';
-
+import { initializeApp } from 'firebase/app';
+import { getDatabase, ref, child, get } from "firebase/database";
 
 export const Spillside = () => {
     
-    const getUsers = async () => {
+    /* const getUsers = async () => {
         const response = await fetch(
           `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`
         );
         const users = await response.json();
         console.log(users.hits);
-      }
+      } */
     
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyAs6zRmpXmZlmmDeCtOFeulxo4v0qPtIeA",
+        authDomain: "drikkespill-c7188.firebaseapp.com",
+        databaseURL: "https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "drikkespill-c7188",
+        storageBucket: "drikkespill-c7188.appspot.com",
+        messagingSenderId: "879998514120",
+        appId: "1:879998514120:web:fd38ab2f8c6014bb42c6fd",
+        measurementId: "G-63HY1WKNT8"
+    };
+      
+      // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    console.log(database)
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+        console.log(snapshot.val());
+    } else {
+        console.log("No data available");
+    }
+    }).catch((error) => {
+    console.error(error);
+    });
+    
+
     
     return(
 
@@ -52,7 +81,7 @@ export const Spillside = () => {
                 <Button className="knapp5" onClick={() => console.log('5')}>
                     5
                 </Button>
-                <button className="test" onClick={() => getUsers()}> test </button>
+                <button className="test" /* onClick={() => getUsers()} */> test </button>
             </Buttons>
 
 
