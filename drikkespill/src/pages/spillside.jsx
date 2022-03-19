@@ -5,6 +5,8 @@ import './spillside.css';
 
 export const Spillside = () => {
 
+
+export const Spillside = () => {
     return(
 
     <>
@@ -55,7 +57,10 @@ export const Spillside = () => {
             </Background>    
         </MobileContainer>
     </>
-)};
+
+    )
+};
+
 
 
 const getUsers = async () => {
