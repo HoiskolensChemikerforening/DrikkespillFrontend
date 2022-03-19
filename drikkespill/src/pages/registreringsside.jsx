@@ -4,7 +4,7 @@ import './registreringsside.css';
 import React, {useEffect, useState} from "react";
 
 export const Registreringsside = () => {
-    
+
     const [name, setName] = useState("");
 
     const updateName = e => {
@@ -14,6 +14,7 @@ export const Registreringsside = () => {
     return(
     <>
     <MobileContainer>
+        <Background>
         <Header> Ny profil</Header>
         <RegistrationContainer>
             <form>
@@ -21,11 +22,18 @@ export const Registreringsside = () => {
             </form>
         </RegistrationContainer>
         <Buttonplacement><Button className="createUser">Opprett bruker</Button></Buttonplacement>
+        </Background>
     </MobileContainer>
     </>
     )
 };
 
+const Background = styled.div`
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+`
 
 const Header = styled.div`
     display: flex;
