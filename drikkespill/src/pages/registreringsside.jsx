@@ -1,15 +1,17 @@
-import {MobileContainer} from "../Components/MobileContainer";
+import {MobileContainer} from "../components/MobileContainer";
 import styled from 'styled-components';
 import './registreringsside.css';
 import React, {useEffect, useState} from "react";
 
 export const Registreringsside = () => {
+    
     const [name, setName] = useState("");
 
     const updateName = e => {
     setName(e.target.value);
     console.log(name)
     }
+    return(
     <>
     <MobileContainer>
         <Header> Ny profil</Header>
@@ -21,6 +23,7 @@ export const Registreringsside = () => {
         <Buttonplacement><Button className="createUser">Opprett bruker</Button></Buttonplacement>
     </MobileContainer>
     </>
+    )
 };
 
 
