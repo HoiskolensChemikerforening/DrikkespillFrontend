@@ -17,7 +17,7 @@ export const Loginside = () => {
         setUsers(data);
         console.log(data);
     };
-    
+    return (
     <>
         <MobileContainer>
             <Tittel> Drikkespill </Tittel>
@@ -40,6 +40,7 @@ export const Loginside = () => {
 
         </MobileContainer>
     </>
+    )
 };
 
 const Tittel = styled.h1`
