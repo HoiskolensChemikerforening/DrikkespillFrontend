@@ -2,8 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import Image from "../images/HC-logo_vektorisert.png";
+import {useEffect, useState} from "react";
 
-export const Loginside = () => (
+export const Loginside = () => {
+    
+    useEffect(() => {
+        getUsers();
+    } )
+    const[users, setUsers] = useState([]);
+
+    const getUsers = async() => {
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`) 
+        const data = await response.json();
+        setUsers(data);
+        console.log(data);
+    };
+    
     <>
         <MobileContainer>
             <Tittel> Drikkespill </Tittel>
@@ -26,7 +40,7 @@ export const Loginside = () => (
 
         </MobileContainer>
     </>
-);
+};
 
 const Tittel = styled.h1`
     font-size: 1,5em;

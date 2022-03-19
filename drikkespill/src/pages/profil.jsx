@@ -1,8 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
+import {useEffect, useState} from "react";
 
-export const Profil = () => (
+export const Profil = () => {
+    
+    const[users, setUsers] = useState([]);
+    
+    const getUsers = async() => {
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/`) 
+        const data = await response.json();
+        setUsers(data.hits);
+        console.log(data.hits);
+    };
+
     <>
         <MobileContainer>
             <Tittel> Profil </Tittel>
@@ -11,7 +22,9 @@ export const Profil = () => (
         </MobileContainer>
 
     </>
-);
+    
+
+};
 
 const Tittel = styled.h1`
     font-size: 1,5em;
