@@ -18,8 +18,10 @@ export const Loginside = () => {
         console.log(data);
     };
     return (
+
     <>
         <MobileContainer>
+
             <Tittel> Drikkespill </Tittel>
             <BildeCont>
             <img width="100px" src={Image} alt="a"/>
@@ -80,7 +82,7 @@ const LoggInn = styled.button`
 `;
 
 const Undertekst = styled.div`
-    height: 100%;
+
     color: light-grey;
     text-align: left;
     font-size: x-small;

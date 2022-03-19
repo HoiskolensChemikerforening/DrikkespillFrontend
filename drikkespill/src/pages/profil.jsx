@@ -19,7 +19,7 @@ export const Profil = () => {
 
     <>
         <MobileContainer>
-            
+            <Tilbake onClick={() => console.log('Tilbake')}> Tilbake </Tilbake>
             <Tittel> Profil </Tittel>
             <BildeCont>
             <img width="250px" src={Image} alt="a"/>
@@ -121,4 +121,12 @@ const BildeCont = styled.div`
     width: 100%;
     display: flex; 
     justify-content: center;
+`;
+
+const Tilbake = styled.button`
+    color: grey;
+    border-radius 2px;
+    cursor: pointer;
+    padding: 0,25em 1em;
+    position:relative; left:10px; top:10px;
 `;

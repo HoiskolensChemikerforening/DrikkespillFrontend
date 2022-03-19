@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
+import './spillside.css';
 
+export const Spillside = () => {
 
-export const Spillside = () => (
+    return(
+
     <>
         <MobileContainer >
             <Background>
@@ -18,10 +21,29 @@ export const Spillside = () => (
 
             <CurrentPlayer>
                 <Textbox>
-                Det er Håkon sin tur til å velge
+                Det er Håkon sin tur til å velge 
                 </Textbox>
             </CurrentPlayer>
             </Information>
+
+            <Buttons>
+                <Button className="hei" onClick={() => console.log('1')}>
+                    1
+                </Button>
+                <Button onClick={() => console.log('2')}>
+                    2
+                </Button>
+                <Button onClick={() => console.log('3')}>
+                    3
+                </Button>
+                <Button onClick={() => console.log('4')}>
+                    4
+                </Button>
+                <Button className="knapp5" onClick={() => console.log('5')}>
+                    5
+                </Button>
+                <button className="test" onClick={() => getUsers()}> test </button>
+            </Buttons>
 
 
             <Category>
@@ -33,46 +55,53 @@ export const Spillside = () => (
             </Background>    
         </MobileContainer>
     </>
-);
+)};
+
+
+const getUsers = async () => {
+    const response = await fetch(
+      `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`
+    );
+    const users = await response.json();
+    console.log(users.hits);
+  }
+
 
 const Background = styled.div`
     width: 100%;
     height: 100%;
     background-color: #d0d0d0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-direction: column;
-    
-
-
+    align-items: center;
+    justify-content: center;
 `;
 
 const Textbox = styled.div`
     color: black;
-    font-size: 3vmax;
+    font-size: 180%;
     text-align: center;
     
 `;
 
 const Information = styled.div`
     
-    height = 50%;
+    height = 80%;
     display: flex;
+    align-items: center;
     flex-direction: column;
-
+    justify-content: center;
+    
 `
 
 const Question = styled.div`
     width: 80%;
-    height: 10%;
+    height: 50%;
     background-color: #ffffff;
     margin: 5px;
     padding-top: 10%;
-    
-    
+` 
 
-`
 
 const Category = styled.div`
     width: 80%;
@@ -88,9 +117,28 @@ const Category = styled.div`
 `;
 
 const CurrentPlayer = styled.div`
-    width: r80%;
-    height: r10%;
+    width: 80%;
+    height: 30%;
     background-color: #ffffff;
-
     margin: 10px;
 `
+const Buttons = styled.div`
+    width: 80%;
+    height: 60%;
+    background-color: #ffffff;
+    
+    
+    display: grid;
+    grid-template-columns: [first] auto [line2] auto;
+    column-gap: 2%;
+    row-gap: 1%;
+`
+
+const Button  = styled.button`
+    
+    
+    text-align: center;
+    background-color: #ff0000;
+
+`
+

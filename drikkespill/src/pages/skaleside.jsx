@@ -40,8 +40,9 @@ export const Skaleside = () => {
 
 const Tittel = styled.h1`
     font-size: 2,0em;
-    text-align: center;
     color: grey;
+    display flex;
+    justify-content: center;
 `;
 
 const Sporsmal = styled.h1`
@@ -62,4 +63,5 @@ const BildeCont = styled.div`
     width: 100%;
     display: flex; 
     justify-content: center;
+    margin: 30px;
 `;
