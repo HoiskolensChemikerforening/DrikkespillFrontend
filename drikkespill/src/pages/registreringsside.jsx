@@ -1,25 +1,48 @@
 import {MobileContainer} from "../Components/MobileContainer";
 import styled from 'styled-components';
+import './registreringsside.css';
+import React, {useEffect, useState} from "react";
 
-export const Registreringsside = () => (
+export const Registreringsside = () => {
+    const [name, setName] = useState("");
+
+    const updateName = e => {
+    setName(e.target.value);
+    console.log(name)
+    }
     <>
     <MobileContainer>
-        <Container>
-            <Text >Ny profil</Text>
-            <RegistrationContainer>
-                <Text >Brukernavn</Text>
-                <Text >Ny profil</Text>
-                <Text >Passord</Text>
-                <Text >Kallenavn</Text>
-            </RegistrationContainer>   
-            <Text >Opprett bruker</Text>
-        </Container>
+        <Header> Ny profil</Header>
+        <RegistrationContainer>
+            <form>
+                <input className="Brukernavn" type="text" value={name} onChange={updateName}/>
+            </form>
+        </RegistrationContainer>
+        <Buttonplacement><Button className="createUser">Opprett bruker</Button></Buttonplacement>
     </MobileContainer>
     </>
-);
+};
 
 
+const Header = styled.div`
+    display: flex;
+    width:  100%;
+    height: 20%;
+    justify-content: center;
+`;
 
+const Buttonplacement = styled.div`
+    display: flex;
+    background-color: blue;
+    width: 100%;
+    height: 20%;
+    justify-content: flex-end;
+    align-items: flex-end;
+`;
+
+const Button = styled.button`
+
+`;
 
 const Text = styled.div`
         display: flex;
@@ -30,9 +53,10 @@ const Text = styled.div`
 
 const RegistrationContainer = styled.div`
     display: flex;
+    width:  100%;
+    height: 50%;
     justify-content: center;
     flex-direction: column;
-    justify-content: space-around;
 `;
 
 const Container = styled.div`
@@ -42,13 +66,3 @@ const Container = styled.div`
     justify-content: space-around;
     `;
 
-const Column = styled.div`
-    display: flex;
-`;
-
-    const RowEnd = styled.div`
-    display: flex;
-    flex-direction: row;
-    width:  ;
-    justify-content: flex-end;
-`;

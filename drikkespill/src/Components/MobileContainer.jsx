@@ -5,6 +5,7 @@ const MobileContainer = styled.div`
     height: 812px;
     background-color: lightgrey;
     display: flex;
+    flex-direction: column;
     justify-content: space-around; 
     `;
 
