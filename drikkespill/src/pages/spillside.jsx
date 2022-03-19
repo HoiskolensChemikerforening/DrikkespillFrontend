@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
-
+import './spillside.css';
 
 export const Spillside = () => (
 
@@ -25,7 +25,7 @@ export const Spillside = () => (
             </Information>
 
             <Buttons>
-                <Button onClick={() => console.log('1')}>
+                <Button className="hei" onClick={() => console.log('1')}>
                     1
                 </Button>
                 <Button onClick={() => console.log('2')}>
@@ -37,9 +37,10 @@ export const Spillside = () => (
                 <Button onClick={() => console.log('4')}>
                     4
                 </Button>
-                <Button onClick={() => console.log('5')}>
+                <Button className="knapp5" onClick={() => console.log('5')}>
                     5
                 </Button>
+                <button className="test" onClick={() => getUsers()}> test </button>
             </Buttons>
 
 
@@ -55,15 +56,23 @@ export const Spillside = () => (
 );
 
 
+const getUsers = async () => {
+    const response = await fetch(
+      `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`
+    );
+    const users = await response.json();
+    console.log(users.hits);
+  }
+
 
 const Background = styled.div`
     width: 100%;
     height: 100%;
     background-color: #d0d0d0;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Textbox = styled.div`
