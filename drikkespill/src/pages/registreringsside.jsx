@@ -32,8 +32,10 @@ const Background = styled.div`
     background-color: lightgrey;
     display: flex;
     flex-direction: column;
-    justify-content: space-around; 
-`
+    justify-content: space-around;
+    width: 100%;
+    heigth: 100%; 
+`;
 
 const Header = styled.div`
     display: flex;

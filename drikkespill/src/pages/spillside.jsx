@@ -3,10 +3,18 @@ import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import './spillside.css';
 
-export const Spillside = () => {
-
 
 export const Spillside = () => {
+    
+    const getUsers = async () => {
+        const response = await fetch(
+          `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`
+        );
+        const users = await response.json();
+        console.log(users.hits);
+      }
+    
+    
     return(
 
     <>
@@ -61,15 +69,6 @@ export const Spillside = () => {
     )
 };
 
-
-
-const getUsers = async () => {
-    const response = await fetch(
-      `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`
-    );
-    const users = await response.json();
-    console.log(users.hits);
-  }
 
 
 const Background = styled.div`
