@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import './spillside.css';
 
-export const Spillside = () => (
+export const Spillside = () => {
+
+    return(
 
     <>
         <MobileContainer >
@@ -53,7 +55,7 @@ export const Spillside = () => (
             </Background>    
         </MobileContainer>
     </>
-);
+)};
 
 
 const getUsers = async () => {

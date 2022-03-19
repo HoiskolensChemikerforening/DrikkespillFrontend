@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 
-export const Loginside = () => (
+export const Loginside = () => {
+    return(
     <>
         <MobileContainer>
             <Tittel> Drikkespill </Tittel>
@@ -20,7 +21,8 @@ export const Loginside = () => (
 
         </MobileContainer>
     </>
-);
+    )
+};
 
 const Tittel = styled.h1`
     font-size: 1,5em;
