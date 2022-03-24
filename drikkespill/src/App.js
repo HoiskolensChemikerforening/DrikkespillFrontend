@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
 import styled from "styled-components";
-import { Startside } from './pages/startside';
+import { Menyside } from './pages/menyside';
 import { Loginside } from './pages/loginside';
 import { Spillside } from './pages/spillside';
 import { Skaleside } from './pages/skaleside';
@@ -24,6 +24,7 @@ function App() {
           <Route path ="/mellomside" element={<Mellomside/>} />
           <Route path="/registreringsside" element={<Registreringsside/>} />
           <Route path="/endscreen" element={<Endscreen/>} />
+          <Route path="/menyside" element={<Menyside/>} />
         </Routes>
       </Router>
       

@@ -6,20 +6,23 @@ import Image from "../images/dextersquare.png";
 
 export const Profil = () => {
     
+    useEffect(() => {
+        getUsers();
+    }, [] )
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
-        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/`) 
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`) 
         const data = await response.json();
-        setUsers(data.hits);
-        console.log(data.hits);
+        setUsers(data);
+        console.log(data);
     };
 
     return(
 
     <>
         <MobileContainer>
-            <Tilbake onClick={() => console.log('Tilbake')}> Tilbake </Tilbake>
+            <Tilbake onClick={event => window.location.href="/menyside"}> Tilbake </Tilbake>
             <Tittel> Profil </Tittel>
             <BildeCont>
             <img width="250px" src={Image} alt="a"/>

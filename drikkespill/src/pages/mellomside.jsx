@@ -9,11 +9,11 @@ export const Mellomside = () => {
     
     useEffect(() => {
         getUsers();
-    } )
+    }, [] )
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
-        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`) 
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`) 
         const data = await response.json();
         setUsers(data);
         console.log(data);
@@ -33,7 +33,7 @@ export const Mellomside = () => {
             <PersonStraff> Johannes må </PersonStraff>
             <Straff> RANDOM STRAFF </Straff>
 
-            <Knapp onClick={() => console.log('Neste spørsmål')}> Neste spørsmål </Knapp>
+            <Knapp onClick={event => window.location.href='/spillside'}> Neste spørsmål </Knapp>
 
         </MobileContainer>
     </>

@@ -10,11 +10,11 @@ export const Endscreen = () => {
     
     useEffect(() => {
         getUsers();
-    } )
+    }, [] )
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
-        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`) 
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`) 
         const data = await response.json();
         setUsers(data);
         console.log(data);
@@ -43,7 +43,7 @@ export const Endscreen = () => {
             <BildeCont3>
             <img width="120px" src={Image3} alt="a"/>
             </BildeCont3>
-            <Knapp onClick={() => console.log('Avslutt')}> Avslutt </Knapp>
+            <Knapp onClick={event => window.location.href='/menyside'}> Avslutt </Knapp>
         </MobileContainer>
     </>
     )
@@ -144,4 +144,12 @@ const Knapp = styled.button`
     justify-content: flex-end;
     margin-left: 350px;
     margin-top: 230px;
+`;
+
+const Tilbake = styled.button`
+    color: grey;
+    border-radius 2px;
+    cursor: pointer;
+    padding: 0,25em 1em;
+    position:relative; left:10px; top:10px;
 `;

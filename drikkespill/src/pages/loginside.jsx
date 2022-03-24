@@ -8,11 +8,11 @@ export const Loginside = () => {
     
     useEffect(() => {
         getUsers();
-    } )
+    }, [] )
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
-        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`) 
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`) 
         const data = await response.json();
         setUsers(data);
         console.log(data);
@@ -29,16 +29,24 @@ export const Loginside = () => {
             <Brukernavn type="text" placeholder="Brukernavn" />
             <Passord type="password" placeholder="Passord"/>
 
-            <Register onClick={() => console.log('Register')}>
+            <Register onClick={event => window.location.href='/registreringsside'} >
                 Registrer deg her
             </Register>
-            <LoggInn onClick={() => console.log('Logg inn')} >
+            <LoggInn onClick={event => window.location.href='/menyside'} >
                 Logg inn
             </LoggInn>
             <Undertekst>
                 Høiskolens Chemikerforening
             </Undertekst>
 
+{/*             <div className="drikkespill">
+                {drikkespill.map(data => (
+                    <Recipe
+                    bruker={data.data.label}
+                    question={data.data.label}
+                    />
+                ))}
+            </div> */}
 
         </MobileContainer>
     </>
