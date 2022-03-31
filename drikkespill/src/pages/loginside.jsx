@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import Image from "../images/HC-logo_vektorisert.png";
 import {useEffect, useState} from "react";
+import { BrowserRouter as Router, Switch, 
+    Route, Redirect, Link,} from "react-router-dom";
 
 export const Loginside = () => {
     
     useEffect(() => {
         getUsers();
-    } )
+    },[] )
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
@@ -17,6 +19,7 @@ export const Loginside = () => {
         setUsers(data);
         console.log(data);
     };
+    
     return (
     <>
         <MobileContainer>
@@ -27,12 +30,12 @@ export const Loginside = () => {
             <Brukernavn type="text" placeholder="Brukernavn" />
             <Passord type="password" placeholder="Passord"/>
 
-            <Register onClick={() => console.log('Register')}>
+            <Link to = "/registreringsside"><Register onClick={() => console.log('Register')}>
                 Registrer deg her
-            </Register>
-            <LoggInn onClick={() => console.log('Logg inn')} >
+            </Register> </Link>
+            <Link to = "/spillside"><LoggInn onClick={() => console.log('Logg inn')} >
                 Logg inn
-            </LoggInn>
+            </LoggInn></Link>
             <Undertekst>
                 Høiskolens Chemikerforening
             </Undertekst>
@@ -95,3 +98,5 @@ const BildeCont = styled.div`
     display: flex; 
     justify-content: center;
 `;
+
+export default Loginside;

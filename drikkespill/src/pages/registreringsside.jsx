@@ -4,6 +4,9 @@ import './registreringsside.css';
 import React, {useEffect, useState} from "react";
 import './spillside.jsx';
 import database from "../Firebase/firebase";
+import { v4 as uuid } from 'uuid';
+import { BrowserRouter as Router, Switch, 
+    Route, Redirect, Link,} from "react-router-dom";
 
 export const Registreringsside = () => {
 
@@ -11,6 +14,8 @@ export const Registreringsside = () => {
     const [nickname, setNickname] = useState("");
     const [pasword, setPasword] = useState("");
     const [ID, setID] = useState("");
+
+    const unique_id = uuid();
 
     const updateName = e => {
     setName(e.target.value);
@@ -33,11 +38,11 @@ export const Registreringsside = () => {
         }
 
     const Push = () => {
-        database.ref("drikkespill/bruker/"+ID).set({
+        database.ref("drikkespill/bruker/"+unique_id).set({
             navn : name,
             kallenavn : nickname,
             passord: pasword,
-            id : ID,
+            id : unique_id,
         }).catch(alert);
         console.log("Success");
     }
@@ -57,12 +62,10 @@ export const Registreringsside = () => {
                 <input className="Gjenta passord" type="text" value={pasword} readOnly placeholder="Gjenta passord"/>
                 <br/><br/>
                 <input className="Kallenavn" type="text" value={nickname} onChange={updateNickname} placeholder="Kallenavn"/>
-                <br/><br/>
-                <input className="ID" type="text" value={ID} onChange={updateID} placeholder="ID"/>
             </form>
-            <OpprettBrukerplacement><OpprettBruker onClick={Push}>
-                Opprett bruker
-                </OpprettBruker></OpprettBrukerplacement>
+            <OpprettBrukerplacement><Link to ="/spillside"><OpprettBruker onClick={Push}>
+                Opprett bruker 
+                </OpprettBruker></Link></OpprettBrukerplacement>
         </RegistrationContainer>
         </Background>
     </MobileContainer>
@@ -117,3 +120,4 @@ const Bilde = styled.button`
     width: 30%;
 `;
 
+export default Registreringsside;
