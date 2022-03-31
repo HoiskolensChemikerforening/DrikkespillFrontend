@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import './spillside.css';
+import { PlayerButton } from "../components/playerbutton";
 
 
 export const Spillside = () => {
@@ -21,8 +22,10 @@ export const Spillside = () => {
           `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`
         );
         const data = await response.json();
-        setUsers(data);
-        console.log(data);
+        const liste = Object.values(data);
+        setUsers(liste.slice(0,8));
+        console.log(users);
+        
     }
 
 
@@ -32,6 +35,7 @@ export const Spillside = () => {
         const data = await response.json();
         setQuestions(data);
         console.log(data);
+        
     }
 
 
@@ -46,10 +50,11 @@ export const Spillside = () => {
     const setName = (button) => {
         console.log("setting name")
         const display = document.getElementById(button);
-        console.log()
+        
         /* console.log(users.044.kallenavn); */
 
     }
+
     
     return(
 
@@ -72,24 +77,15 @@ export const Spillside = () => {
             </CurrentPlayer>
             </Information>
 
+            
             <Buttons>
-                <Button className="hei" onClick={() => console.log('1')}>
-                    1
-                </Button>
-                <Button id="2" onClick={() => console.log('2')}>
-                    2
-                </Button>
-                <Button id="3" onClick={() => console.log('3')}>
-                    3
-                </Button>
-                <Button id="4" onClick={() => setName("4")}>
-                    4
-                </Button>
-                <Button id="5" className="knapp5" onClick={() => console.log(randomQuestion())}>
-                    5
-                </Button>
-            </Buttons>
+                {users.map( (user) => (
+                    <Button key={user.id} onClick = {() => {console.log(user.kallenavn)}}>{user.kallenavn}</Button>
+                )
 
+                )}
+
+            </Buttons>
 
             <Category>
                 <Textbox>
@@ -179,6 +175,8 @@ const Button  = styled.button`
     text-align: center;
     background-color: #ff0000;
 
+
+
 `
 
 
@@ -207,3 +205,19 @@ const Button  = styled.button`
     const database = getDatabase(app);
 
      */
+
+    {/* <Button className="hei" onClick={() => console.log('1')}>
+                    1
+                </Button>
+                <Button id="2" onClick={() => console.log('2')}>
+                    2
+                </Button>
+                <Button id="3" onClick={() => console.log('3')}>
+                    3
+                </Button>
+                <Button id="4" onClick={() => setName("4")}>
+                    4
+                </Button>
+                <Button id="5" className="knapp5" onClick={() => console.log(randomQuestion())}>
+                    5
+                </Button> */}
