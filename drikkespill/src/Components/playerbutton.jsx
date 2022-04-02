@@ -18,5 +18,6 @@ export {PlayerButton};
 const Button  = styled.button`    
     text-align: center;
     background-color: #ff0000;
+    margin: 5px;
 
 `

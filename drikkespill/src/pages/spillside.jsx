@@ -9,12 +9,14 @@ export const Spillside = () => {
     
     const [users, setUsers] = useState([]);
     const [questions, setQuestions] = useState([]);
+    const [gamestate, setGamestate] = useState();
     
 
 
     useEffect(() =>{
         getUsers();
         getQuestions();
+        getGamestate();
       },[]);
     
     const getUsers = async () => {
@@ -22,10 +24,10 @@ export const Spillside = () => {
           `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`
         );
         const data = await response.json();
-        const liste = Object.values(data);
-        setUsers(liste.slice(0,8));
-        console.log(users);
-        
+        const liste = Object.values(data).slice(0, 8);
+        setUsers(liste);
+        console.log(liste);
+        randomPlayer(liste)
     }
 
 
@@ -35,26 +37,50 @@ export const Spillside = () => {
         const data = await response.json();
         setQuestions(data);
         console.log(data);
+        randomQuestion(data); // endrer spm på page refresh
         
     }
 
+    const getGamestate = async () => {
+        const response = await fetch(
+            `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/gamestate.json`);
+        const data = await response.json();
+        setGamestate(data)
+        console.log(data)
+    }
 
-    const randomQuestion = async () => {
-        let length = questions.length;
-        const random = Math.floor((Math.random()*(length-1))+1);
-        const question = questions[random];
+    const randomListObj = (list, start=0) => {
+        let length = list.length;
+        const random = Math.floor((Math.random()*(length-start))+start);
+        const ranObj = list[random];
+        return ranObj;
+    }
+
+    const randomPlayer = (users) => {
+        console.log("Setting random player");
+        const user = randomListObj(users);
+        setPlayer(user.kallenavn)
+
+    }
+
+    const randomQuestion = (questions) => {
+        console.log("Setting random question");
+        const question = randomListObj(questions, 1);
         const display = document.getElementById("question");
-        display.textContent = question
+        display.textContent = question;
     }
 
-    const setName = (button) => {
-        console.log("setting name")
-        const display = document.getElementById(button);
+    const setPlayer = (player) => {
+        console.log("setting player");
+        const display = document.getElementById("player");
+        const prompt = "Det er " + player + " sin tur til å velge";
+        display.textContent = prompt;
+    }
+
+
+    const updateChoice = () => {
         
-        /* console.log(users.044.kallenavn); */
-
     }
-
     
     return(
 
@@ -71,8 +97,8 @@ export const Spillside = () => {
             </Question>
 
             <CurrentPlayer>
-                <Textbox>
-                Det er Håkon sin tur til å velge 
+                <Textbox id="player">
+                 
                 </Textbox>
             </CurrentPlayer>
             </Information>
@@ -120,8 +146,8 @@ const Textbox = styled.div`
 `;
 
 const Information = styled.div`
-    
-    height = 80%;
+    width: 100%;
+    height20 30%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -164,9 +190,9 @@ const Buttons = styled.div`
     
     
     display: grid;
-    grid-template-columns: [first] auto [line2] auto;
+    grid-template-columns: [first] 49% [line2] 49%;
     column-gap: 2%;
-    row-gap: 1%;
+    row-gap
 `
 
 const Button  = styled.button`
