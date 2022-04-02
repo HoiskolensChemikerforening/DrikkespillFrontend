@@ -10,19 +10,25 @@ export const Loginside = () => {
     
     useEffect(() => {
         getUsers();
+<<<<<<< HEAD
     },[] )
+=======
+    }, [] )
+>>>>>>> feat/loginside
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
-        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker`) 
+        const response = await fetch(`https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`) 
         const data = await response.json();
         setUsers(data);
         console.log(data);
     };
     
     return (
+
     <>
         <MobileContainer>
+
             <Tittel> Drikkespill </Tittel>
             <BildeCont>
             <img width="100px" src={Image} alt="a"/>
@@ -30,16 +36,31 @@ export const Loginside = () => {
             <Brukernavn type="text" placeholder="Brukernavn" />
             <Passord type="password" placeholder="Passord"/>
 
+<<<<<<< HEAD
             <Link to = "/registreringsside"><Register onClick={() => console.log('Register')}>
                 Registrer deg her
             </Register> </Link>
             <Link to = "/spillside"><LoggInn onClick={() => console.log('Logg inn')} >
+=======
+            <Register onClick={event => window.location.href='/registreringsside'} >
+                Registrer deg her
+            </Register>
+            <LoggInn onClick={event => window.location.href='/menyside'} >
+>>>>>>> feat/loginside
                 Logg inn
             </LoggInn></Link>
             <Undertekst>
                 Høiskolens Chemikerforening
             </Undertekst>
 
+{/*             <div className="drikkespill">
+                {drikkespill.map(data => (
+                    <Recipe
+                    bruker={data.data.label}
+                    question={data.data.label}
+                    />
+                ))}
+            </div> */}
 
         </MobileContainer>
     </>
@@ -83,13 +104,17 @@ const LoggInn = styled.button`
 `;
 
 const Undertekst = styled.div`
+<<<<<<< HEAD
     height: 100%;
+=======
+
+>>>>>>> feat/loginside
     color: light-grey;
     text-align: left;
     font-size: x-small;
     display: flex;
     align-items: flex-end;
-    margin: 10px 5px 20px 30px;
+    margin: 250px 5px 20px 30px;
 `;
 
 

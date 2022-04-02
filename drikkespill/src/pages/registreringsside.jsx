@@ -21,6 +21,7 @@ export const Registreringsside = () => {
     setName(e.target.value);
     console.log(name)
     }
+<<<<<<< HEAD
 
     const updateNickname = e => {
         setNickname(e.target.value);
@@ -47,6 +48,8 @@ export const Registreringsside = () => {
         console.log("Success");
     }
 
+=======
+>>>>>>> feat/loginside
     return(
     <>
     <MobileContainer>
