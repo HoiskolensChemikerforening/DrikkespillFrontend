@@ -78,8 +78,11 @@ export const Spillside = () => {
     }
 
 
-    const updateChoice = () => {
-        // endring
+    const updateChoice = (id) => {
+        const output = "id: " + id
+        console.log(output)
+        gamestate.id = id
+
     }
     
     return(
@@ -106,7 +109,7 @@ export const Spillside = () => {
             
             <Buttons>
                 {users.map( (user) => (
-                    <Button key={user.id} onClick = {() => {console.log(user.kallenavn)}}>{user.kallenavn}</Button>
+                    <Button key={user.id} onClick = {() => {updateChoice(user.kallenavn)}}>{user.kallenavn}</Button>
                 )
 
                 )}
