@@ -10,11 +10,7 @@ export const Loginside = () => {
     
     useEffect(() => {
         getUsers();
-<<<<<<< HEAD
-    },[] )
-=======
     }, [] )
->>>>>>> feat/loginside
     const[users, setUsers] = useState([]);
 
     const getUsers = async() => {
@@ -36,19 +32,12 @@ export const Loginside = () => {
             <Brukernavn type="text" placeholder="Brukernavn" />
             <Passord type="password" placeholder="Passord"/>
 
-<<<<<<< HEAD
-            <Link to = "/registreringsside"><Register onClick={() => console.log('Register')}>
-                Registrer deg her
-            </Register> </Link>
-            <Link to = "/spillside"><LoggInn onClick={() => console.log('Logg inn')} >
-=======
             <Register onClick={event => window.location.href='/registreringsside'} >
                 Registrer deg her
             </Register>
             <LoggInn onClick={event => window.location.href='/menyside'} >
->>>>>>> feat/loginside
                 Logg inn
-            </LoggInn></Link>
+            </LoggInn>
             <Undertekst>
                 Høiskolens Chemikerforening
             </Undertekst>
@@ -104,11 +93,6 @@ const LoggInn = styled.button`
 `;
 
 const Undertekst = styled.div`
-<<<<<<< HEAD
-    height: 100%;
-=======
-
->>>>>>> feat/loginside
     color: light-grey;
     text-align: left;
     font-size: x-small;

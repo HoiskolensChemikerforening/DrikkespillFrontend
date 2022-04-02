@@ -26,7 +26,7 @@ export const Menyside = () => {
     <>
         <MobileContainer>
             <DropDownContainer> 
-            <DropDownHeader onClick={toggling}> Meny </DropDownHeader>
+            <DropDownHeader onClick={toggling}> ||| </DropDownHeader>
             {isOpen && (
                 <DropDownListContainer> 
                     <DropDownList> 
@@ -96,7 +96,9 @@ const DropDownHeader = styled.div`
     margin-top: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-
+    transform: rotate(90deg);
+    font-size: 1.5em;
+    font-weight: 500;
 `;
 
 const DropDownListContainer = styled.div`

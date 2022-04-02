@@ -5,13 +5,8 @@ import './spillside.css';
 
 export const Spillside = () => {
 
-<<<<<<< HEAD
-export const Spillside = () => {
-    return(
-=======
     return(
 
->>>>>>> feat/loginside
     <>
         <MobileContainer >
             <Background>
@@ -60,12 +55,8 @@ export const Spillside = () => {
             </Background>    
         </MobileContainer>
     </>
-<<<<<<< HEAD
     )
 };
-=======
-)};
->>>>>>> feat/loginside
 
 
 const getUsers = async () => {
