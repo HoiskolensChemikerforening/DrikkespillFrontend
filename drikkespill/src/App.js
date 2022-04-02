@@ -7,6 +7,7 @@ import { Spillside } from './pages/spillside';
 import { Skaleside } from './pages/skaleside';
 import { Profil } from './pages/profil';
 import { Mellomside } from './pages/mellomside';
+import { Oversikt } from './pages/oversikt';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {Registreringsside} from "./pages/registreringsside";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/profil" element={<Profil/>} />
           <Route path="/skaleside" element={<Skaleside/>} />
           <Route path ="/mellomside" element={<Mellomside/>} />
+          <Route path ="/oversikt" element={<Oversikt/>} />
         </Routes>
       </Router>
       
