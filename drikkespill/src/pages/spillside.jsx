@@ -79,7 +79,7 @@ export const Spillside = () => {
 
 
     const updateChoice = () => {
-        
+        // endring
     }
     
     return(
