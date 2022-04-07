@@ -24,10 +24,6 @@ function App() {
           <Route path="/profil" element={<Profil/>} />
           <Route path="/skaleside" element={<Skaleside/>} />
           <Route path ="/mellomside" element={<Mellomside/>} />
-          <Route path ="/oversikt" element={<Oversikt/>} />
-          <Route path="/registreringsside" element={<Registreringsside/>} />
-          <Route path="/endscreen" element={<Endscreen/>} />
-          <Route path="/menyside" element={<Menyside/>} />
         </Routes>
       </Router>
       
