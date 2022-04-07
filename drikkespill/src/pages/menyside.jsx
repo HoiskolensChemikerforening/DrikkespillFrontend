@@ -86,7 +86,7 @@ const DropDownContainer = styled.div`
     width: 80px;
     height: 30px;
     background-color: pink;
-    margin-left: 380px;
+    margin-left: 340px;
     cursor: pointer;
 `;
 

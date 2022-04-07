@@ -18,7 +18,7 @@ export const Loginside = () => {
         console.log(data);
     };
     return (
-
+        
     <>
         <MobileContainer>
 
@@ -90,7 +90,6 @@ const LoggInn = styled.button`
 `;
 
 const Undertekst = styled.div`
-
     color: light-grey;
     text-align: left;
     font-size: x-small;
