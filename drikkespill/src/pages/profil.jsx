@@ -1,8 +1,9 @@
-import React from "react";
+import React, { Profiler } from "react";
 import styled from "styled-components";
 import { MobileContainer } from "../components/MobileContainer";
 import {useEffect, useState} from "react";
 import Image from "../images/dextersquare.png";
+
 
 export const Profil = () => {
     
@@ -28,7 +29,7 @@ export const Profil = () => {
             <img width="250px" src={Image} alt="a"/>
             </BildeCont>
 
-            <EndreBilde onClick={() => console.log('Endre bilde')}> Endre bilde </EndreBilde>
+            <EndreBilde type="submit" className="edit"> Endre bilde </EndreBilde>
             <Brukernavn> Johannes </Brukernavn>
             <Kallenavn> Kallenavn: Johannes </Kallenavn>
             <NyttKallenavn type="text" placeholder="Nytt kallenavn"/>
@@ -55,11 +56,7 @@ const Tittel = styled.h1`
 `;
 
 const Brukernavn = styled.div`
-    color: black;
-    text-align: left;
-    display: flex;
-    align-items: flex-start;
-    margin: 50px 10px 300px 40px;
+    
 
 `;
 
@@ -133,3 +130,87 @@ const Tilbake = styled.button`
     padding: 0,25em 1em;
     position:relative; left:10px; top:10px;
 `;
+
+const ImgUpload = ({
+    onChange,
+    src
+}) =>
+    <label htmlFor="photo-upload" className="custom-file-uploard fas">
+        <div className="img-wrap img-upload">
+            <img for="photo-upload" src={src}/>
+        </div>
+        <input id="photo-upload" type="file" onChange={onChange}/>
+    </label>
+
+const Edit =({
+    onSubmit,
+    children
+})=>
+    <div className="card">
+        <form onSubmit={onSubmit}>
+            {children}
+            <button type="submit" className="save"> Save </button>
+        </form>
+    </div>
+
+const Profile =({
+    onSubmit, src,
+    })=>
+    <div className='card'>
+        <form onSubmit={onSubmit}>
+            <label className="customfile-upload fas">
+                <div className="img-wrap">
+                    <img for="photo-upload" src={src}/>
+                </div>
+            </label>
+        </form>
+
+    </div>
+
+class CardProfile extends React.Component {
+    state = {
+        file: '',
+        imagePreviewUrl:'https://raw.githubusercontent.com/OlgaKoplik/CodePen/master/profile.jpg',
+        active: 'edit'
+    }
+
+    photoUpload = e =>{
+        e.preventDefault();
+        const reader = new FileReader();
+        const file = e.target.files[0];
+        reader.onloadend = () => {
+            this.setState({
+                file: file,
+                imagePreviewUrl: reader.result
+            });
+        }
+        reader.readAsDataURL(file);
+    }
+
+    handleSubmit = e =>{
+        e.preventDefault();
+        let activeP = this.state.active === 'edit' ? 'profile' : 'edit';
+        this.setState({
+            active: activeP
+        })
+    }
+
+    render() {
+        const {imagePreviewUrl, name, status, active} = this.state;
+        return (
+            <div>
+                {(active === 'edit')?(
+                    <Edit onSubmit={this.handleSubmit}>
+                        <ImgUpload onChange={this.photoUpload} src={imagePreviewUrl}/>
+                    </Edit>
+                ):(
+                    <Profile
+                        onSubmit={this.handleSubmit}
+                        src = {imagePreviewUrl}/>
+                )}
+            </div>
+        )
+    }
+}
+
+/* https://codepen.io/OlgaKoplik/pen/ZdyKGY */

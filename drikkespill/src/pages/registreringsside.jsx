@@ -17,21 +17,14 @@ export const Registreringsside = () => {
         <Background>
         <Header> Ny profil</Header>
         <RegistrationContainer>
-            <form className="Skjema">
-                <input className="Brukernavn" type="text" value={name} onChange={updateName} placeholder="Brukernavn"/>
-            </form>
-            <form>
-                <input className="Passord" type="text" value={name} onChange={updateName} placeholder="Passord"/>
-            </form>
-            <form>
-                <input className="Gjenta passord" type="text" value={name} onChange={updateName} placeholder="Gjenta passord"/>
-            </form>
-            <form>
-                <input className="Kallenavn" type="text" value={name} onChange={updateName} placeholder="Kallenavn"/>
-            </form>
+            <Inputten type="text" placeholder="Brukernavn"/>
+            <Inputten type="password" placeholder="Passord"/>
+            <Inputten type="password" placeholder="Gjenta passord"/>
+            <Inputten type="text" placeholder="Kallenavn"/>
         </RegistrationContainer>
-        <Buttonplacement><Button onClick={() => console.log('Opprett bruker')}>
-                Opprett bruker</Button></Buttonplacement>
+        <Buttonplacement>
+            <OpprettBruker onClick={event => window.location.href="/profil"}> Opprett bruker </OpprettBruker>
+        </Buttonplacement>
         </Background>
     </MobileContainer>
     </>
@@ -47,7 +40,7 @@ const Background = styled.div`
     height: 100%;
 `;
 
-const Header = styled.div`
+const Header = styled.h1`
     display: flex;
     width:  100%;
     height: 20%;
@@ -82,6 +75,7 @@ const RegistrationContainer = styled.div`
     height: 50%;
     align-items: center;
     flex-direction: column;
+    padding-left: 5px;
 `;
 
 const Container = styled.div`
@@ -89,5 +83,22 @@ const Container = styled.div`
     flex-direction: column;
     height: 100%;
     justify-content: space-around;
+    margin: 100px; 100px; 100px; 100px;
     `;
 
+const OpprettBruker = styled.button`
+    color: gray;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 0,25em 1em;
+    position:relative; left:-74px; top:-470px;
+`;
+
+const Inputten = styled.input`
+    color: grey;
+    border-radius: 2px;
+    width = 50px;
+    display: flex;
+    justify-content: center;
+    margin:2px;
+`;
