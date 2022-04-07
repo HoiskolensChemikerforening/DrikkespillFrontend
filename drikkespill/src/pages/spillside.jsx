@@ -9,14 +9,14 @@ export const Spillside = () => {
     
     const [users, setUsers] = useState([]);
     const [questions, setQuestions] = useState([]);
-    const [gamestate, setGamestate] = useState();
+    const [gamerooms, setGamerooms] = useState();
     
 
 
     useEffect(() =>{
         getUsers();
         getQuestions();
-        getGamestate();
+        getGamerooms();
       },[]);
     
     const getUsers = async () => {
@@ -41,9 +41,9 @@ export const Spillside = () => {
         
     }
 
-    const getGamestate = async () => {
+    const getGamerooms = async () => {
         const response = await fetch(
-            `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/gamestate.json`);
+            `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/gamerooms.json`);
         const data = await response.json();
         setGamestate(data)
         console.log(data)
