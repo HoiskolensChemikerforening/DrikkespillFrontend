@@ -10,6 +10,8 @@ export const Spillside = () => {
     const [users, setUsers] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [gamerooms, setGamerooms] = useState();
+    const [gameroomIDs, setGameroomIDs] = useState([]);
+    const [players, setPlayers] = useState([]);
     
 
 
@@ -17,6 +19,7 @@ export const Spillside = () => {
         getUsers();
         getQuestions();
         getGamerooms();
+        
       },[]);
     
     const getUsers = async () => {
@@ -24,10 +27,9 @@ export const Spillside = () => {
           `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/bruker.json`
         );
         const data = await response.json();
-        const liste = Object.values(data).slice(0, 8);
-        setUsers(liste);
-        console.log(liste);
-        randomPlayer(liste)
+        setUsers(data);
+        console.log("Users: " + data);
+        randomPlayer(Object.values(data))
     }
 
 
@@ -36,7 +38,7 @@ export const Spillside = () => {
           `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/question.json`);
         const data = await response.json();
         setQuestions(data);
-        console.log(data);
+        console.log("Question: " + data);
         randomQuestion(data); // endrer spm på page refresh
         
     }
@@ -45,8 +47,29 @@ export const Spillside = () => {
         const response = await fetch(
             `https://drikkespill-c7188-default-rtdb.europe-west1.firebasedatabase.app/drikkespill/gamerooms.json`);
         const data = await response.json();
-        setGamestate(data)
-        console.log(data)
+        setGamerooms(data)
+        console.log("gamerooms: " + data)
+        getRoomIDs(data);
+        getPlayers(data);
+        
+    }
+
+    const getRoomIDs = async (gamerooms) => {
+        const roomID = Object.keys(gamerooms)
+        setGameroomIDs(roomID)
+        console.log("RoomIDs: " + roomID)
+    }
+
+    const getPlayers = async (gamerooms) => {
+        const playerIDs = gamerooms.room1.players;
+        const players = [];
+
+        playerIDs.forEach(element => {
+            players.push(users[element])
+            console.log("players: " + players)
+        });
+        setPlayers(players);
+
     }
 
     const randomListObj = (list, start=0) => {
@@ -81,7 +104,11 @@ export const Spillside = () => {
     const updateChoice = (id) => {
         const output = "id: " + id
         console.log(output)
-        gamestate.id = id
+
+        
+        /* gamerooms.room1.rounds = id
+        console.log(gamerooms[0].rounds)
+        console.log(gamerooms[0]) */
 
     }
     
@@ -108,12 +135,12 @@ export const Spillside = () => {
 
             
             <Buttons>
-                {users.map( (user) => (
-                    <Button key={user.id} onClick = {() => {updateChoice(user.kallenavn)}}>{user.kallenavn}</Button>
+                { players.map( (player) => (
+                    <Button key={player.id} onClick = {() => {updateChoice(player.kallenavn)}}>{player.kallenavn}</Button>
                 )
 
                 )}
-
+                
             </Buttons>
 
             <Category>
